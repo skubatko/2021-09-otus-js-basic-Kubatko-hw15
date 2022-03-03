@@ -1,0 +1,1 @@
+!function(){"use strict";var e=document.querySelector("#app"),t=document.createElement("div");e.appendChild(t)}();

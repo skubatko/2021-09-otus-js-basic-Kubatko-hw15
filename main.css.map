@@ -1,0 +1,1 @@
+{"version":3,"file":"main.css","mappings":"AAAA,EAGE,QAAS,CAGT,qBAAsB,CALtB,QAAS,CAGT,SAAU,CAFV,SAAU,CAGV,iBAEF","sources":["webpack://2021-09-otus-js-basic-kubatko-hw15/./src/styles/style.css"],"sourcesContent":["* {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  outline: 0;\n  position: relative;\n  box-sizing: border-box;\n}\n"],"names":[],"sourceRoot":""}
