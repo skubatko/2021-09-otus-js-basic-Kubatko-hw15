@@ -1,5 +1,6 @@
-const title = document.createElement("h1");
-title.classList.add("MainHeader");
-title.innerText = "Hello, JS!";
+import "./styles/style.css";
 
-document.body.appendChild(title);
+const root = document.querySelector("#app");
+
+const el = document.createElement("div");
+root.appendChild(el);
