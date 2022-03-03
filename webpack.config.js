@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
@@ -6,7 +7,7 @@ const path = require("path");
 const { NODE_ENV } = process.env;
 
 module.exports = {
-  entry: path.resolve(__dirname, "src/index.js"),
+  entry: path.resolve(__dirname, "src/index.ts"),
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
@@ -15,11 +16,14 @@ module.exports = {
       arrowFunction: false,
     },
   },
+  resolve: {
+    extensions: [".js", ".ts"],
+  },
   devtool: NODE_ENV === "production" ? "hidden-source-map" : "eval-source-map",
   module: {
     rules: [
       {
-        test: /\.m?js$/,
+        test: /\.([jt])s$/,
         exclude: /(node_modules)/,
         use: {
           loader: "babel-loader",
@@ -29,22 +33,19 @@ module.exports = {
         },
       },
       {
+        // https://webpack.js.org/loaders/css-loader/
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
       },
       {
-        // https://webpack.js.org/guides/asset-modules/#resource-assets
-        test: /\.(png|jpe?g|gif|svg)$/i,
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset/resource",
+        generator: {
+          filename: "./image/[contenthash][ext]",
+        },
       },
       {
-        // https://webpack.js.org/guides/asset-modules/#replacing-inline-loader-syntax
-        resourceQuery: /raw/,
-        type: "asset/source",
-      },
-      {
-        // https://webpack.js.org/loaders/html-loader/#usage
-        resourceQuery: /template/,
+        test: /\.html$/i,
         loader: "html-loader",
       },
     ],
