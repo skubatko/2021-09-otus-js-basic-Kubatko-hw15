@@ -1,6 +1,6 @@
 import { OnArgs } from "./router";
 
-export const onHomeEnter = (el: HTMLElement) => (args?: OnArgs) => {
+export const onAboutEnter = (el: HTMLElement) => (args?: OnArgs) => {
   const calendarEl = el.querySelector(".calendar");
   if (calendarEl) {
     calendarEl.innerHTML = "";
@@ -13,6 +13,6 @@ export const onHomeEnter = (el: HTMLElement) => (args?: OnArgs) => {
 
   const aboutEl = el.querySelector(".about");
   if (aboutEl) {
-    aboutEl.innerHTML = "";
+    aboutEl.innerHTML = "About";
   }
 };

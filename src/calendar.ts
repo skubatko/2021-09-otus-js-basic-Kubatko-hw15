@@ -1,9 +1,9 @@
 import { OnArgs } from "./router";
 
-export const onHomeEnter = (el: HTMLElement) => (args?: OnArgs) => {
+export const onCalendarEnter = (el: HTMLElement) => (args?: OnArgs) => {
   const calendarEl = el.querySelector(".calendar");
   if (calendarEl) {
-    calendarEl.innerHTML = "";
+    calendarEl.innerHTML = "Calendar";
   }
 
   const listEl = el.querySelector(".list");
