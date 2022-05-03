@@ -26,5 +26,7 @@ module.exports = {
     "no-param-reassign": ["error", { props: false }],
     "one-var": [2, { uninitialized: "always" }],
     "no-shadow": ["error", { allow: ["items", "el"] }],
+    "default-param-last": ["off"],
+    "class-methods-use-this": ["off"],
   },
 };
